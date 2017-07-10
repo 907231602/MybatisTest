@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-config.dtd">  
+<configuration>  
+    <properties>  
+        <property name="driver-mysql" value="com.mysql.jdbc.Driver"></property>  
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/testuser" ></property>  
+        <property name="username" value="root"></property>  
+        <property name="password" value="root"></property>  
+    </properties>  
+  
+    <settings>  
+                <!-- 将数据库字段命名规则A_COLUMN转换为Java使用的驼峰式命名规则aCloumn -->  
+        <setting name="mapUnderscoreToCamelCase" value="true" />  
+    </settings>  
+  
+    <typeAliases>  
+        <typeAlias alias="User" type="com.bf.entity.UserEntity" />  
+    </typeAliases>  
+  
+    <environments default="development">  
+        <environment id="development">  
+            <transactionManager type="JDBC" />  
+            <dataSource type="POOLED">  
+                <property name="driver" value="${driver-mysql}" />  
+                <property name="url" value="${url}" />  
+                <property name="username" value="${username}" />  
+                <property name="password" value="${password}" />  
+            </dataSource>  
+        </environment>  
+  
+        <environment id="product">  
+            <transactionManager type="JDBC" />  
+            <dataSource type="POOLED">  
+                <property name="driver" value="com.mysql.jdbc.Driver" />  
+                <property name="url" value="jdbc:mysql://127.0.0.1:3306/mybatis" />  
+                <property name="username" value="root" />  
+                <property name="password" value="root" />  
+            </dataSource>  
+        </environment>  
+    </environments>  
+  
+    <mappers>  
+        <mapper resource="com/bf/mapper/UserMapper.xml" />  
+        <mapper class="com.bf.dao.UserDao" />  
+    </mappers>  
+</configuration>  
