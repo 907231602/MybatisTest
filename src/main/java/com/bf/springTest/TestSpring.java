@@ -20,7 +20,7 @@ import com.bf.entity.UserEntity;
  * testGetById，xml文件配置映射
  * testGetByIds，注解映射
  * @author Administrator
- *
+ *  http://blog.csdn.net/chris_mao/article/details/48853561
  */
 public class TestSpring {
 
